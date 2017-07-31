@@ -27,7 +27,15 @@
 		<!-- 处理用户输入 -->
 		<div id="app-4">
 			<p>{{message}}</p>
+			<!-- 
+				点击事件v-on:click="事件名" 
+				v-model="" 表单双向绑定
+			-->
 			<button v-on:click="reverseMessage">{{buttonName}}</button>
+			<button v-on:click="clickEvent">{{button2Name}}</button>
+			<p class="input_text">{{inputMessage}}</p>
+			<input type="text" :value="this.inputMessage">
+			<input type="text" v-model="inputMessage">
 		</div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
