@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>vue2.0练习</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+		  {{ message }}
+		</div>
+		<div id="app-2">
+			<!-- v-bind 为vue指令。指令带有前缀v-，以表示他们是vue提供的特殊属性，他们会在渲染的dom应用特殊的响应式行为。这里该指令的作用就是，将这个元素点的title属性和vue实例的message属性保持一致 -->
+			<span v-bind:style="tipMessage">
+				title属性添加,v-bind:元素css属性="实例属性"
+			</span>
+		</div>
+
+		<!-- 条件与循环 -->
+		<div id="app-3">
+			<p v-if="seen">能看到我么</p>
+			<ol>
+				<li v-for="todo in todos">{{todo.text}}</li>
+			</ol>
+		</div>
+
+		<!-- 处理用户输入 -->
+		<div id="app-4">
+			<p>{{message}}</p>
+			<button v-on:click="reverseMessage">{{buttonName}}</button>
+		</div>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
