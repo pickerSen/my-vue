@@ -11,7 +11,7 @@
 		</div>
 		<div id="app-2">
 			<!-- v-bind 为vue指令。指令带有前缀v-，以表示他们是vue提供的特殊属性，他们会在渲染的dom应用特殊的响应式行为。这里该指令的作用就是，将这个元素点的title属性和vue实例的message属性保持一致 -->
-			<span v-bind:style="tipMessage">
+			<span v-bind:style="tipMessage" v-bind:title="message">
 				title属性添加,v-bind:元素css属性="实例属性"
 			</span>
 		</div>
@@ -36,6 +36,30 @@
 			<p class="input_text">{{inputMessage}}</p>
 			<input type="text" :value="this.inputMessage">
 			<input type="text" v-model="inputMessage">
+			<!-- 在这里是没有用的因为js里定义的todo-item组件按顺序执行只在app-5前面 -->
+			<ol>
+				<!-- 创建一个 todo-item 组件的实例 -->
+				<!-- <todo-item></todo-item> -->
+			</ol>
+		</div>
+
+		<!-- 组件化应用构建 -->
+		<div id="app-5">
+			<ol>
+				<!-- 创建一个 todo-item 组件的实例 -->
+				<todo-item></todo-item>
+			</ol>
+			<ol>
+				<!-- 现在我们为每个todo2-item 提供代办事项对象  待办事项就是变量，及其内容可以动态的。
+				我们也需要为每个组件提供一个“key”，晚些时候作解释 -->
+				<todo2-item v-for="item in arrayList" v-bind:todo="item" v-bind:key="item.id"></todo2-item>
+			</ol>
+		</div>
+		<div id="app-6">
+			<p>{{message}}</p>
+			<p>{{a}}</p>
+			<p>{{afterNew || '没有正确显示'}}</p>
+			<button v-on:click="clickEvent">点击改变data.a值，触发$watch函数调用</button>
 		</div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
